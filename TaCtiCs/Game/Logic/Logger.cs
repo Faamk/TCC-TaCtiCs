@@ -8,7 +8,7 @@ namespace TaCtiCs.Game.Logic {
 		private string filename;
 		private bool liveWrite;
 		public Logger(string filename = null, bool liveWrite = false) {
-			this.filename = filename ? ? DateTime.Now.ToString("yyyy−MM −dd␣HHmmss") + DateTime.Now.Millisecond + ". txt";;
+			this.filename = filename ??  DateTime.Now.ToString("yyyy−MM −ddHHmmss") + DateTime.Now.Millisecond + ". txt";;
 			this.liveWrite = liveWrite;
 			this.log = new StringBuilder();
 		}

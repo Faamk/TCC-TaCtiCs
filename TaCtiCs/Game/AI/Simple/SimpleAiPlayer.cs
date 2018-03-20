@@ -109,7 +109,10 @@ namespace TaCtiCs.Game.AI.Simple {
 			var targeteableTiles = moveableTiles.Where(x => field.CalculateDistance(x, this.Opponent.CurrentTile) == range);
 			if (targeteableTiles.Any()) {
 				return targeteableTiles.Where(x => x.Placeable != this.Opponent).OrderByDescending(x => field.CalculateDistance(x, this.Opponent.CurrentTile)).First();
-			} else // If we can ’t , we return te closest to the oponent { return moveableTiles .Where(x=> x. Placeable != this .Opponent) . OrderBy(x => field . CalculateDistance(x, this . Opponent. CurrentTile)) . First () ; } }
-		}
+			} else // If we can ’t , we return te closest to the oponent 
+			{ 
+				return moveableTiles .Where(x=> x. Placeable != this .Opponent) . OrderBy(x => field . CalculateDistance(x, this . Opponent. CurrentTile)) . First () ; 
+			} 
+	}
 	}
 	}

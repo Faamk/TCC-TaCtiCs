@@ -76,7 +76,7 @@ namespace TaCtiCs.Game.View.Controls {
 			}
 		}
 		public override void Update(GameTime gameTime) {
-			this.Field = this.Field ? ? Battlefield.GenerateBattleField(this.Game.Player1.Character, this.Game.Player2.Character);
+			this.Field = this.Field ?? Battlefield.GenerateBattleField(this.Game.Player1.Character, this.Game.Player2.Character);
 			SetAiOpponents();
 			if (BattleThread.ThreadState == ThreadState.Unstarted) {
 				BattleThread.Start();
@@ -114,8 +114,7 @@ namespace TaCtiCs.Game.View.Controls {
 						break;
 					case enActionType.Move:
 						if (tile.GetCharacter() == null) {
-							127
-								player.HasMoved = true;
+							player.HasMoved = true;
 							player.NextAction = new PlayerAction {
 								Target = tile, Type = CurrentAction
 							};
@@ -162,12 +161,12 @@ namespace TaCtiCs.Game.View.Controls {
 			if (this.Field != null) {
 				foreach(Tile tile in this.Field.Tiles) {
 					Color color = this.HighlitedTiles.Contains(tile) ? specialHighlight : Color.White;
-					spriteBatch.Draw(this.Game.GrassTexture, new Rectangle(15 + (tile.X∗ 50), 15 + (tile.Y∗ 50), 50, 50), color);
+					spriteBatch.Draw(this.Game.GrassTexture, new Rectangle(15 + (tile.X*50), 15 + (tile.Y*50), 50, 50), color);
 						if (tile.Placeable != null) {
 						Texture2D texture = null;
 						if (tile.Placeable == this.Game.Player1.Character) texture = this.Game.Player1.CharTexture;
 						if (tile.Placeable == this.Game.Player2.Character) texture = this.Game.Player2.CharTexture;
-						spriteBatch.Draw(texture ? ? this.Game.ThiefTexture, new Rectangle(24 + (tile.X∗ 50), 24 + (tile.Y∗ 50), 32, 32), Color.White);
+						spriteBatch.Draw(texture ?? this.Game.ThiefTexture, new Rectangle(24 + (tile.X*50), 24 + (tile.Y*50), 32, 32), Color.White);
 					}
 					spriteBatch.DrawString(this.Game.Font, "Player␣" + this.PlayerNumber + " ’s␣Turn", new Vector2(550, 10), Color.Black);
 					spriteBatch.DrawString(this.Game.Font, string.Format(" Player␣1:␣Hp␣{0}␣Energy␣{1} ", this.Game.Player1.Character.CurrentHitPoints, this.Game.Player1.Character.CurrentEnergy), new Vector2(470, 400), Color.Black);

@@ -97,7 +97,7 @@ namespace TaCtiCs.Game.View.Controls {
 				this.State = enButtonState.Normal;
 			}
 			if (this.State != enButtonState.Disabled)
-				112 {
+			 	{
 				MouseState mouse = Mouse.GetState();
 				Rectangle rectangle = this.Rectangle;
 				if (this.State == enButtonState.Normal) {
@@ -126,10 +126,10 @@ namespace TaCtiCs.Game.View.Controls {
 					spriteBatch.Draw(this.NormalTexture, this.Rectangle, Color.White);
 					break;
 				case enButtonState.Selected:
-					spriteBatch.Draw(this.SelectedTexture ? ? this.NormalTexture, this.Rectangle, Color.Gray);
+					spriteBatch.Draw(this.SelectedTexture ?? this.NormalTexture, this.Rectangle, Color.Gray);
 					break;
 				case enButtonState.Disabled:
-					spriteBatch.Draw(this.DisabledTexture ? ? this.NormalTexture, this.Rectangle, Color.LightGray);
+					spriteBatch.Draw(this.DisabledTexture ?? this.NormalTexture, this.Rectangle, Color.LightGray);
 					break;
 				default:
 					break;

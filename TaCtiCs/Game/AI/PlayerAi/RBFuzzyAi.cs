@@ -52,7 +52,7 @@ namespace TaCtiCs.Game.AI.PlayerAi {
 				}
 			}
 			var baseAction = base.GetAction();
-			this.Log.AppendLine($"0,0,{ this . Character .Name},{baseAction .Type},{ this . Actions},{ this . States .Count},{ string . Join(", " ,␣actions)}");
+			this.Log.AppendLine($"0,0,{ this . Character .Name},{baseAction .Type},{ this . Actions},{ this . States .Count},{ string . Join(",",actions)}");
 			return baseAction;
 		}
 			private PlayerAction TryAttacking(enActionType action) {

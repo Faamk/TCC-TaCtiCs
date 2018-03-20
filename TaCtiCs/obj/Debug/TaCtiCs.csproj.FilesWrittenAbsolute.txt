@@ -1,0 +1,2 @@
+/home/fabrizio-krukoski/TCC/TCC-TaCtiCs/TaCtiCs/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/fabrizio-krukoski/TCC/TCC-TaCtiCs/TaCtiCs/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs

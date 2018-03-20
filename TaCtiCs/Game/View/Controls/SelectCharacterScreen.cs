@@ -83,7 +83,7 @@ namespace TaCtiCs.Game.View.Controls {
 				player.CharTexture = texture;
 			}
 		}
-		public override void Draw(GameTime gameTime 122, SpriteBatch spriteBatch) {
+		public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
 			this.Player1ThiefButton.Draw(spriteBatch);
 			this.Player1WarriorButton.Draw(spriteBatch);
 			this.Player1WizardButton.Draw(spriteBatch);

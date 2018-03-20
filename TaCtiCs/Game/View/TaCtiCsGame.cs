@@ -119,7 +119,7 @@ namespace TaCtiCs.Game.View {
 		protected override void Update(GameTime gameTime) {
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit();
 			this.gameScreens[this.Screen].Update(gameTime);
-			if (this.Screen == enGameScreen.105 Gameplay && this.Battle.IsOver) {
+			if (this.Screen == enGameScreen.Gameplay && this.Battle.IsOver) {
 				if (Keyboard.GetState().IsKeyDown(Keys.Enter)) {
 					this.Initialize();
 				}

@@ -90,8 +90,8 @@ namespace TaCtiCs.Game.Logic.Character {
    if (this.CanMoveTo(tile)) {
     this.MoveToTile(tile);
    }
-   162
   }
+
   public void ExecuteAttack(Tile tile, bool isAttackPhysical, bool isDefensePhysical) {
    if (this.CanAttack(tile)) {
     ICharacter opponent = tile.GetCharacter();

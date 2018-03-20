@@ -21,9 +21,9 @@ namespace TaCtiCs.Game.Logic {
 			}
 		}
 		public virtual int CalculateDistance(Tile tile1, Tile tile2) {
-			int distanceX = Math.Abs(tile1.X− tile2.X);
-			int distanceY = Math.Abs(tile1.Y− 149 tile2.Y);
-			double distance = Math.Sqrt((distanceX∗ distanceX) + (distanceY∗ distanceY));
+			int distanceX = Math.Abs(tile1.X-tile2.X);
+			int distanceY = Math.Abs(tile1.Y-tile2.Y);
+			double distance = Math.Sqrt((distanceX*distanceX) + (distanceY*distanceY));
 			return Convert.ToInt32(Math.Ceiling(distance));
 		}
 		public static Battlefield GenerateBattleField(ICharacter player1Char, ICharacter player2Char) {

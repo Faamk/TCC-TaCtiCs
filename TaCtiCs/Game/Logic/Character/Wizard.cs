@@ -42,7 +42,7 @@ namespace TaCtiCs.Game.Logic.Character {
 		}
 		public override void ExecuteSpecial(Tile tile) {
 			if (this.CanUseSpecialAttackOn(tile)) {
-				this.CurrentEnergy− = this.SpecialAttackCost;
+				this.CurrentEnergy-= this.SpecialAttackCost;
 				ICharacter opponent = tile.GetCharacter();
 				double difference = (this.SpecialAttack*1.18)-opponent.SpecialDefense;
 				opponent.CurrentHitPoints-= this.GetDamage(difference);

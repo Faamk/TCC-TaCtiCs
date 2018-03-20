@@ -2,14 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <ProjectGuid>{FF9A537F-698B-4A07-A48B-C342332510D0}</ProjectGuid>
-    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TaCtiCs</RootNamespace>
     <AssemblyName>TaCtiCs</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -29,6 +30,12 @@
     <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
@@ -50,7 +57,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game\AI\PlayerAi\Matlab\RBFuzzy.cs" />
     <Compile Include="Game\AI\PlayerAi\Matlab\RBFuzzyWrapper.cs" />
     <Compile Include="Game\AI\PlayerAi\RBFuzzyAi.cs" />
     <Compile Include="Game\AI\Simple\SimpleAiPlayer.cs" />
@@ -94,19 +100,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Game\AI\PlayerAi\Matlab\RBFuzzy.m" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Game" />
-    <Folder Include="Game\AI\Simple" />
-    <Folder Include="Game\AI\PlayerAi" />
-    <Folder Include="Game\AI\PlayerAi\Matlab" />
-    <Folder Include="Game\Logic" />
-    <Folder Include="Game\Logic\Action" />
-    <Folder Include="Game\Logic\Character" />
-    <Folder Include="Game\AI" />
-    <Folder Include="Game\View" />
-    <Folder Include="Game\View\Controls" />
-    <Folder Include="Game\View\Player" />
+    <Folder Include="Game\AI\" />
+    <Folder Include="Game\AI\" />
+    <Folder Include="Game\AI\PlayerAi\" />
+    <Folder Include="Game\" />
+    <Folder Include="Game\Logic\" />
+    <Folder Include="Game\Logic\" />
+    <Folder Include="Game\" />
+    <Folder Include="Game\" />
+    <Folder Include="Game\View\" />
+    <Folder Include="Game\View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

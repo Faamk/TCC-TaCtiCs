@@ -131,7 +131,7 @@ namespace TaCtiCs.Game.Logic {
 		public override string ToString() {
 			StringBuilder toString = new StringBuilder();
 			toString.AppendFormat("{0},", (int) this.PlayerClass);
-			toString.AppendFormat("{0},", ((double) this.PlayerHP / 100 d));
+			toString.AppendFormat("{0},", ((double) this.PlayerHP / 100d));
 			toString.AppendFormat("{0},", ((double) this.PlayerEnergy / 100d));
 			toString.AppendFormat("{0},", this.PlayerStatus.HasValue ? (int ? ) this.PlayerStatus.Value : 0);
 			toString.AppendFormat("{0},", this.PlayerStatusDuration);
@@ -143,7 +143,7 @@ namespace TaCtiCs.Game.Logic {
 			toString.AppendFormat("{0},", ((double) this.ActionCount / ActionCountMax));
 			toString.AppendFormat("{0},", ((double) this.PreviousDistance / DistanceMax));
 			if (this.ActionPerformed == enActionType.Move) {
-				toString.AppendFormat("{0}", (int)(this.PreviousDistance > this.CurrentDistance ? enAiActionType.155 Approach : this.PreviousDistance < this.CurrentDistance ? enAiActionType.Retreat : enAiActionType.KeepDistance));
+				toString.AppendFormat("{0}", (int)(this.PreviousDistance > this.CurrentDistance ? enAiActionType.Approach : this.PreviousDistance < this.CurrentDistance ? enAiActionType.Retreat : enAiActionType.KeepDistance));
 			} else {
 				toString.AppendFormat("{0}", (int) this.ActionPerformed);
 			}

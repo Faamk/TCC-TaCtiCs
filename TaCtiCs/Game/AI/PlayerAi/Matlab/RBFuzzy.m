@@ -1,11 +1,13 @@
-﻿%ACOR−V % % function y = acorv(population , error_function ,
-params_error_function)
-% % population is the initial solutions , each solution in a line . Each column % represents a variable of the solution and the last column is the fitness % value of the solution . The maximum number of solutions is k (currently % set in 50). You need to pass at least one solution so the algorithm can % detect the number of variables . % % error_function is the function who receives a solution and return the % equivalent fitness value . Remember to put the @ simbol to pass a handle % to the function . % % params_error_function is a struct with the parameters to the % error_function function [y, it ] = acorv(population , error_function ) global populations global fitnesses global temp populations = zeros(0 , 0) ; fitnesses = zeros(0 , 0) ; fitnesses (: , :) = population (: , end) ; global RBFUZZY k = RBFUZZY.k;
-m = RBFUZZY.m; max_value_allowed = 1; min_value_allowed = 0; n = size(population, 2) − 1; max_number_of_iteration = 10000; max_number_of_iteration_without_improvement = ... RBFUZZY.maxNumIteracoesSemMelhora; minimal_size_of_improvement = 10 ^ (−6);
+﻿%ACOR−V% 
+% function y = acorv(population , error_function ,params_error_function)% 
+% population is the initial solutions , each solution in a line . Each column represents a variable of the solution and the last column is the fitness % value of the solution . The maximum number of solutions is k (currently % set in 50). You need to pass at least one solution so the algorithm can % detect the number of variables . % % error_function is the function who receives a solution and return the % equivalent fitness value . Remember to put the @ simbol to pass a handle % to the function . % % params_error_function is a struct with the parameters to the % error_function function [y, it ] = acorv(population , error_function ) global populations global fitnesses global temp populations = zeros(0 , 0) ; fitnesses = zeros(0 , 0) ; fitnesses (: , :) = population (: , end) ; global RBFUZZY k = RBFUZZY.k;
+m = RBFUZZY.m; max_value_allowed = 1; min_value_allowed = 0; n = size(population, 2) - 1; max_number_of_iteration = 10000; max_number_of_iteration_without_improvement = ... RBFUZZY.maxNumIteracoesSemMelhora; minimal_size_of_improvement = 10 ^ (-6);
+
+
 required_error = 0;
-i = size(population, 1); while i < k i = i + 1; new_solution = zeros(1, n + 1); for j = 1:n new_solution(j) = min_value_allowed + (rand ∗ (max_value_allowed − min_value_allowed)); end; RBFUZZY. pesos = new_solution (1:n); new_solution(n + 1) = error_function (); population(i, :) = new_solution; end; population = sortrows(population, n + 1);
+i = size(population, 1); while i < k i = i + 1; new_solution = zeros(1, n + 1); for j = 1:n new_solution(j) = min_value_allowed + (rand * (max_value_allowed - min_value_allowed)); end; RBFUZZY. pesos = new_solution (1:n); new_solution(n + 1) = error_function (); population(i, :) = new_solution; end; population = sortrows(population, n + 1);
 iterations_without_improvement = 0; size_of_improvement = 0; best_error_up_to_now = population(1, n + 1); error_evolution = zeros(1, max_number_of_iteration); for iteration = 1:max_number_of_iteration new_solutions = zeros(m, n + 1); for ant = 1:m new_solution = zeros(1, n + 1); for j = 1:n new_solution(j) = normrnd(population(1, j), desvpad(population (:, j))); if new_solution(j) < min_value_allowed new_solution(j) = min_value_allowed; elseif new_solution(j) > max_value_allowed new_solution(j) = max_value_allowed; end; end; RBFUZZY. pesos = new_solution (1:n);
-populations = [populations; new_solution (1:end −1)]; tmp = error_function (); new_solution(n + 1) = tmp; fitnesses = [fitnesses; tmp]; new_solutions(ant, :) = new_solution;
+populations = [populations; new_solution (1:end -1)]; tmp = error_function (); new_solution(n + 1) = tmp; fitnesses = [fitnesses; tmp]; new_solutions(ant, :) = new_solution;
 end; for ant = 1:m population(k + ant, :) = new_solutions(ant, :); end; population = sortrows(population, n + 1); population = population (1:k, :); error_evolution(iteration) = population(1, n + 1); if population(1, n + 1) ~= best_error_up_to_now size_of_improvement = size_of_improvement + best_error_up_to_now − population (1, n + 1); best_error_up_to_now = population(1, n + 1); if size_of_improvement > minimal_size_of_improvement size_of_improvement = 0; iterations_without_improvement = 0; else iterations_without_improvement = iterations_without_improvement + 1; end; else iterations_without_improvement = iterations_without_improvement + 1; if iterations_without_improvement > max_number_of_iteration_without_improvement
 break;
 end;
@@ -15,10 +17,10 @@ end; it = int32(iteration);
 for i = (iteration + 1):max_number_of_iteration error_evolution(i) = 1 / 0; end;
     y = population (1, 1:n);
 end
-function y = desvpad(x) k = length(x); y = 0; for i = 2:k y = y + (x(i) − x(1)) ^ 2; end; y = sqrt(y / (k−1)) ∗ 0.85; end
+function y = desvpad(x) k = length(x); y = 0; for i = 2:k y = y + (x(i)-x(1)) ^ 2; end; y = sqrt(y / (k-1))*0.85; end
 function calcularAtivacoes () global RBFUZZY
 dados = RBFUZZY. dadosTreino;
-RBFUZZY. spreads = []; temp = cell (RBFUZZY.numNeuronios, 1); for i = 1:RBFUZZY.numNeuronios % Pegando o spread dos pontos − spread temp{i} = dados(RBFUZZY. cidx == i , 1:end −1); spread = RBFUZZY. funcaoSpread(dados(RBFUZZY . cidx == i , 1:end−1)) ’; spread(spread == 0) = 1.0e−5; RBFUZZY. spreads = [RBFUZZY. spreads ; spread ’]; end;
+RBFUZZY. spreads = []; temp = cell (RBFUZZY.numNeuronios, 1); for i = 1:RBFUZZY.numNeuronios % Pegando o spread dos pontos − spread temp{i} = dados(RBFUZZY. cidx == i , 1:end -1); spread = RBFUZZY. funcaoSpread(dados(RBFUZZY . cidx == i , 1:end-1)) ’; spread(spread == 0) = 1.0e−5; RBFUZZY. spreads = [RBFUZZY. spreads ; spread ’]; end;
 ativacoes = zeros(RBFUZZY.numNeuronios, size(dados, 1)); for i = 1:RBFUZZY.numNeuronios centro = RBFUZZY. centros(i, 1:end); spread = RBFUZZY. spreads(i, 1:end); testeX = dados (:, 1:end−1); params = [sqrt(spread); centro]; atvs = zeros(size(testeX ’)); for j = 1: size(testeX, 2) atvs(j, :) = gaussmf(testeX (:, j) ’, params(:, j) ’); end ativacoes(i, :) = min(atvs);
 end;
 RBFUZZY. ativacoesTreino = ativacoes ’;

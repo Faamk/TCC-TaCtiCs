@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="TaCtiCs/TaCtiCs.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TaCtiCs/Game/AI/PlayerAi/Matlab/RBFuzzyWrapper.cs">
+    <Files>
+      <File FileName="TaCtiCs/Game/AI/PlayerAi/Matlab/RBFuzzyWrapper.cs" Line="11" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

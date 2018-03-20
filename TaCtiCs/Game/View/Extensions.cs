@@ -13,8 +13,7 @@ namespace TaCtiCs.Game.View {
 			switch (highlightType) {
 				case enActionType.Move:
 					range = character.Movement;
-					107
-						break;
+					break;
 				case enActionType.Attack:
 					range = character.AttackRange;
 					break;
@@ -41,10 +40,10 @@ namespace TaCtiCs.Game.View {
 						}
 					}
 				}
-				if (position.X < 8) FindTiles(position.Field.Tiles[position.X + 1, position.Y], movementLeft− 1, highlightedTiles, highlightType);
-				if (position.X > 0) FindTiles(position.Field.Tiles[position.X− 1, position.Y], movementLeft− 1, highlightedTiles, highlightType);
-				if (position.Y < 8) FindTiles(position.Field.Tiles[position.X, position.Y + 1], movementLeft− 1, highlightedTiles, highlightType);
-				if (position.Y > 0) FindTiles(position.Field.Tiles[position.X, position.Y− 1], movementLeft− 1, highlightedTiles, highlightType);
+				if (position.X < 8) FindTiles(position.Field.Tiles[position.X + 1, position.Y], movementLeft-1, highlightedTiles, highlightType);
+				if (position.X > 0) FindTiles(position.Field.Tiles[position.X-1, position.Y], movementLeft-1, highlightedTiles, highlightType);
+				if (position.Y < 8) FindTiles(position.Field.Tiles[position.X, position.Y + 1], movementLeft-1, highlightedTiles, highlightType);
+				if (position.Y > 0) FindTiles(position.Field.Tiles[position.X, position.Y-1], movementLeft-1, highlightedTiles, highlightType);
 			}
 		}
 	}
