@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{FF9A537F-698B-4A07-A48B-C342332510D0}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TaCtiCs</RootNamespace>
+    <AssemblyName>TaCtiCs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game\AI\PlayerAi\Matlab\RBFuzzy.cs" />
+    <Compile Include="Game\AI\PlayerAi\Matlab\RBFuzzyWrapper.cs" />
+    <Compile Include="Game\AI\PlayerAi\RBFuzzyAi.cs" />
+    <Compile Include="Game\AI\Simple\SimpleAiPlayer.cs" />
+    <Compile Include="Game\Logic\Action\enAiActionType.cs" />
+    <Compile Include="Game\Logic\Action\PlayerAction.cs" />
+    <Compile Include="Game\Logic\Battle.cs" />
+    <Compile Include="Game\Logic\Battlefield.cs" />
+    <Compile Include="Game\Logic\Character\ACharacter.cs" />
+    <Compile Include="Game\Logic\Character\Constants.cs" />
+    <Compile Include="Game\Logic\Character\Dazed.cs" />
+    <Compile Include="Game\Logic\Character\Dizzy.cs" />
+    <Compile Include="Game\Logic\Character\enCharacterStatus.cs" />
+    <Compile Include="Game\Logic\Character\ICharacterExtension.cs" />
+    <Compile Include="Game\Logic\Character\IPlaceable.cs" />
+    <Compile Include="Game\Logic\Character\Slow.cs" />
+    <Compile Include="Game\Logic\Character\Thief.cs" />
+    <Compile Include="Game\Logic\Character\Warrior.cs" />
+    <Compile Include="Game\Logic\Character\Wizard.cs" />
+    <Compile Include="Game\Logic\GameState.cs" />
+    <Compile Include="Game\Logic\IPlayer.cs" />
+    <Compile Include="Game\Logic\Logger.cs" />
+    <Compile Include="Game\Logic\Tile.cs" />
+    <Compile Include="Game\View\Controls\Button.cs" />
+    <Compile Include="Game\View\Controls\GameScreen.cs" />
+    <Compile Include="Game\View\Controls\ModeSelectScreen.cs" />
+    <Compile Include="Game\View\Controls\Screen.cs" />
+    <Compile Include="Game\View\Controls\SelectCharacterScreen.cs" />
+    <Compile Include="Game\View\enGameScreen.cs" />
+    <Compile Include="Game\View\Extensions.cs" />
+    <Compile Include="Game\View\Player\AIPlayerWrapper.cs" />
+    <Compile Include="Game\View\Player\IUiPlayer.cs" />
+    <Compile Include="Game\View\Player\LocalPlayer.cs" />
+    <Compile Include="Game\View\Program.cs" />
+    <Compile Include="Game\View\TaCtiCsGame.cs" />
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Game" />
+    <Folder Include="Game\AI\Simple" />
+    <Folder Include="Game\AI\PlayerAi" />
+    <Folder Include="Game\AI\PlayerAi\Matlab" />
+    <Folder Include="Game\Logic" />
+    <Folder Include="Game\Logic\Action" />
+    <Folder Include="Game\Logic\Character" />
+    <Folder Include="Game\AI" />
+    <Folder Include="Game\View" />
+    <Folder Include="Game\View\Controls" />
+    <Folder Include="Game\View\Player" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
